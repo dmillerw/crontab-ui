@@ -1,5 +1,5 @@
 # docker run -d -p 8000:8000 alseambusher/crontab-ui
-FROM alpine:3.13.5
+FROM 3.10.1-alpine3.15
 
 ENV   CRON_PATH /etc/crontabs
 
@@ -16,7 +16,8 @@ RUN   apk --no-cache add \
       nodejs \
       npm \
       supervisor \
-      tzdata
+      tzdata \
+      git
 
 COPY supervisord.conf /etc/supervisord.conf
 COPY . /crontab-ui
